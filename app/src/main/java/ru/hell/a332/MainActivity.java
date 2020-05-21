@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
 
         chTheme.setAdapter(arrTh);
 
-        ArrayAdapter<?> arrMg = ArrayAdapter.createFromResource( this, R.array.margin, android.R.layout.simple_spinner_item);
+/*        ArrayAdapter<?> arrMg = ArrayAdapter.createFromResource( this, R.array.margin, android.R.layout.simple_spinner_item);
         arrTh.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        chMarg.setAdapter(arrMg);
+        chMarg.setAdapter(arrMg);*/
 
 
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
-                mrg = chMarg.getSelectedItemPosition();
+/*                mrg = chMarg.getSelectedItemPosition();
                 switch (mrg) {
                     case 0:
                         text.setCompoundDrawablePadding(0);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     default:
                         break;
-                }
+                }*/
 
 
 
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        chMarg = findViewById(R.id.spinMarg);
+        /*chMarg = findViewById(R.id.spinMarg);*/
         chTheme = findViewById(R.id.spinTheme);
         image = findViewById(R.id.imageFlag);
         select = findViewById(R.id.spinner);

@@ -1,9 +1,13 @@
 package ru.hell.a332;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView text;
     private String param = "ru";
     private static int currentThemeRes = -1, set, mrg;
+    int margin;
+    /*float textSize;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+        /*final ViewGroup.MarginLayoutParams layoutParams = new ViewGroup.MarginLayoutParams(text.getMaxWidth(), text.getMaxHeight());*/
+
+        final ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) text.getLayoutParams();
+
+
         ArrayAdapter<?> arrCh = ArrayAdapter.createFromResource( this, R.array.language, android.R.layout.simple_spinner_item);
         arrCh.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -43,15 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
         chTheme.setAdapter(arrTh);
 
-/*        ArrayAdapter<?> arrMg = ArrayAdapter.createFromResource( this, R.array.margin, android.R.layout.simple_spinner_item);
-        arrTh.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<?> arrMg = ArrayAdapter.createFromResource( this, R.array.margin, android.R.layout.simple_spinner_item);
+        arrMg.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        chMarg.setAdapter(arrMg);*/
-
-
-
+        chMarg.setAdapter(arrMg);
 
         ok.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
 
@@ -73,22 +82,49 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
 
-/*                mrg = chMarg.getSelectedItemPosition();
+                mrg = chMarg.getSelectedItemPosition();
                 switch (mrg) {
                     case 0:
-                        text.setCompoundDrawablePadding(0);
+                        margin=getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin_small);
+                        params.topMargin = margin;
+                        params.leftMargin = margin;
+                        params.bottomMargin = margin;
+                        params.rightMargin = margin;
+
+             /*           textSize = getResources().getDimension(R.dimen.text_size_small);
+                        text.setTextSize(textSize);
+                        text.setPadding(R.dimen.activity_horizontal_margin_small, R.dimen.activity_vertical_margin_small,R.dimen.activity_horizontal_margin_small, R.dimen.activity_vertical_margin_small);*/
+/*                        layoutParams.setMargins(5,5,5,5);
+                        text.setLayoutParams(layoutParams);*/
                         break;
                     case 1:
-                        text.setCompoundDrawablePadding(5);
+                        margin=getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin_medium);
+                        params.topMargin = margin;
+                        params.leftMargin = margin;
+                        params.bottomMargin = margin;
+                        params.rightMargin = margin;
+             /*           textSize = getResources().getDimension(R.dimen.text_size_medium);
+                        text.setTextSize(textSize);
+                        text.setPadding(R.dimen.activity_horizontal_margin_medium, R.dimen.activity_vertical_margin_medium,R.dimen.activity_horizontal_margin_medium, R.dimen.activity_vertical_margin_medium);*/
+/*                        layoutParams.setMargins(15,15,15,15);
+                        text.setLayoutParams(layoutParams);*/
                         break;
                     case 2:
-                        text.setCompoundDrawablePadding(10);
+                        margin=getResources().getDimensionPixelSize(R.dimen.activity_vertical_margin_big);
+                        params.topMargin = margin;
+                        params.leftMargin = margin;
+                        params.bottomMargin = margin;
+                        params.rightMargin = margin;
+                        text.setLayoutParams(params);
+           /*             textSize = getResources().getDimension(R.dimen.text_size_big);
+                        text.setTextSize(textSize);
+                        text.setPadding(R.dimen.activity_horizontal_margin_big, R.dimen.activity_vertical_margin_big,R.dimen.activity_horizontal_margin_big, R.dimen.activity_vertical_margin_big);*/
+/*                        layoutParams.setMargins(50,50,50,50);
+                        text.setLayoutParams(layoutParams);*/
                         break;
                     default:
                         break;
-                }*/
-
-
+                }
 
                 param = select.getSelectedItem().toString();
                 if(param.equals("Russisch") || param.equals("Russian") || param.equals("Русский")){
@@ -109,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        /*chMarg = findViewById(R.id.spinMarg);*/
+        chMarg = findViewById(R.id.spinMarg);
         chTheme = findViewById(R.id.spinTheme);
         image = findViewById(R.id.imageFlag);
         select = findViewById(R.id.spinner);

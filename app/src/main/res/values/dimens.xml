@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin_small">0dp</dimen>
+    <dimen name="activity_vertical_margin_small">0dp</dimen>
+    <dimen name="text_size_small">30dp</dimen>
+
+    <dimen name="activity_horizontal_margin_medium">5dp</dimen>
+    <dimen name="activity_vertical_margin_medium">5dp</dimen>
+    <dimen name="text_size_medium">30dp</dimen>
+
+    <dimen name="activity_horizontal_margin_big">16dp</dimen>
+    <dimen name="activity_vertical_margin_big">16dp</dimen>
+    <dimen name="text_size_big">35dp</dimen>
+</resources>

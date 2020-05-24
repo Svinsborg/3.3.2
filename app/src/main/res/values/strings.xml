@@ -20,7 +20,7 @@
         <item>большие</item>
     </string-array>
 
-    <string name="text">Этот текст на русском языке</string>
+    <string name="text">Этот текст на русском языке, надо больше текста, а то так и не понять что происходит!</string>
 
     <string name="butOk">Изменить</string>
 
